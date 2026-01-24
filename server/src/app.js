@@ -5,6 +5,9 @@ const authRoutes = require('./modules/auth/auth.routes');
 const testRoutes = require("./routes/test");
 const walletRoutes = require("./routes/wallet");
 const transactionRoutes = require("./routes/transactions");
+const dashboardRoutes = require("./routes/dashboard");
+const goalRoutes = require("./routes/goals");
+
 
 
 
@@ -21,6 +24,8 @@ app.use('/auth', authRoutes); // Mount auth routes
 app.use("/test", testRoutes); // Mount test routes
 app.use("/wallet", walletRoutes); // Mount wallet routes
 app.use("/transactions", transactionRoutes); // Mount transaction routes
+app.use("/dashboard", dashboardRoutes); // Mount dashboard routes
+app.use("/goals", goalRoutes); // Mount goals routes
 
 
 
