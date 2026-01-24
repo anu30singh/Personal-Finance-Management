@@ -4,7 +4,7 @@ function Landing() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-zinc-50 to-zinc-200 text-zinc-900">
       
-      {/* ================= NAVBAR ================= */}
+     
       <nav className="max-w-7xl mx-auto px-6 md:px-8 py-4 flex items-center justify-between">
         <h1 className="text-xl font-semibold">Flexiwallet</h1>
         <Link

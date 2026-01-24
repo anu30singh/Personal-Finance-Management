@@ -21,7 +21,6 @@ router.get("/", requireAuth, async (req, res) => {
       FROM transactions
       WHERE user_id = $1
       ORDER BY created_at DESC
-      LIMIT 5
       `,
       [req.user.id]
     );

@@ -19,6 +19,13 @@ function Dashboard() {
   const [goals, setGoals] = useState([]);
   const [insights, setInsights] = useState([]);
 
+  //filter
+  const [filterType, setFilterType] = useState("all");
+  const [filterCategory, setFilterCategory] = useState("all");
+  const [filterRange, setFilterRange] = useState("all");
+  const [sortOrder, setSortOrder] = useState("desc");
+
+
   useEffect(() => {
     loadDashboard();
   }, []);
@@ -92,6 +99,36 @@ function Dashboard() {
 const totalIncome = transactions
   .filter((tx) => tx.type === "income")
   .reduce((sum, tx) => sum + Number(tx.amount), 0);
+
+const filteredTransactions = transactions
+  .filter((tx) => {
+    if (filterType !== "all" && tx.type !== filterType) {
+      return false;
+    }
+
+    if (filterCategory !== "all" && tx.category !== filterCategory) {
+      return false;
+    }
+
+    if (filterRange !== "all") {
+      const txDate = new Date(tx.created_at);
+      const now = new Date();
+
+      if (filterRange === "7") {
+        return now - txDate <= 7 * 24 * 60 * 60 * 1000;
+      }
+
+      if (filterRange === "30") {
+        return now - txDate <= 30 * 24 * 60 * 60 * 1000;
+      }
+    }
+
+    return true;
+  })
+  .sort((a, b) =>
+    sortOrder === "desc" ? b.amount - a.amount : a.amount - b.amount
+  );
+
 
 
   return (
@@ -292,19 +329,59 @@ const totalIncome = transactions
               </div>
             </div>
           )}
+    <div className="bg-white rounded-2xl shadow-sm flex flex-wrap gap-5 items-center p-4 mb-4">
+       <p className="text-zinc-700 font-medium">Filter your transactions</p>
+      <select
+       value={filterType}
+       onChange={(e) => setFilterType(e.target.value)}
+       className=" rounded-xl  px-3 py-2 text-sm"
+     >
+        <option value="all">All Types</option>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+
+           <select
+             value={filterCategory}
+             onChange={(e) => setFilterCategory(e.target.value)}
+             className=" rounded-xl px-3 py-2 text-sm"
+           >
+             <option value="all">All Categories</option>
+             {[...new Set(transactions.map((t) => t.category))]
+               .filter(Boolean)
+               .map((cat) => (
+                 <option key={cat} value={cat}>
+                   {cat}
+                 </option>
+               ))}
+           </select>
+
+           <select
+             value={filterRange}
+             onChange={(e) => setFilterRange(e.target.value)}
+             className=" rounded-xl px-3 py-2 text-sm"
+           >
+             <option value="all">All Time</option>
+             <option value="7">Last 7 days</option>
+             <option value="30">Last 30 days</option>
+           </select>
+          </div>
+         
+
+        </div>
 
           {/* Recent Transactions */}
           <div className="bg-white rounded-lg p-6 border border-zinc-200">
             <h3 className="font-bold text-zinc-900 mb-4">Recent Transactions</h3>
 
-            {transactions.length === 0 ? (
-              <p className="text-zinc-500 text-center py-8">No transactions yet</p>
-            ) : (
-              <div className="space-y-3">
-                {transactions.map((tx, index) => (
-                  <div
+           {filteredTransactions.length === 0 ? (
+           <p className="text-zinc-500 text-center py-8">No transactions match filters</p>
+           ) : (
+           <div className="space-y-3">
+            {filteredTransactions.map((tx, index) => (
+                 <div
                     key={index}
-                    className="flex justify-between items-center py-3 border-b last:border-0"
+                     className="flex justify-between items-center py-3 border-b last:border-0"
                   >
                     <div>
                       <p className="font-medium text-zinc-900">
@@ -324,7 +401,7 @@ const totalIncome = transactions
               </div>
             )}
           </div>
-        </div>
+    
       </div>
     </>
   );

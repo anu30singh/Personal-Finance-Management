@@ -1,5 +1,7 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import logo from "../assets/logo.png";
+
 
 function Navbar() {
   const [user, setUser] = useState(null);
@@ -25,9 +27,17 @@ useEffect(() => {
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         
         
-        <h1 className="text-lg font-semibold text-zinc-900">
-          Flexiwallet
-        </h1>
+        <Link
+  to="/"
+  className="flex items-center gap-2 text-lg font-semibold tracking-tight text-zinc-900 hover:opacity-80 transition"
+>
+  <img
+    src={logo}
+    alt="Flexiwallet logo"
+    className="h-6 w-6"
+  />
+  <span>Flexiwallet</span>
+</Link>
 
        <div className="flex items-center gap-6 text-sm font-medium">
   <NavLink
