@@ -11,11 +11,10 @@ const router = express.Router();
 router.get("/", requireAuth, async (req, res) => {
   let wallet = await walletService.getWalletByUserId(req.user.id);
 
-  if (!wallet) {
-    wallet = await walletService.createWalletForUser(req.user.id);
-  }
-
-  res.json(wallet);
+if (!wallet) {
+  wallet = await walletService.createWalletForUser(req.user.id);
+}
+    res.json(wallet);
 });
 
 module.exports = router;

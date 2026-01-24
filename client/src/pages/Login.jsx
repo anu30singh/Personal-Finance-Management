@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { login } from "../services/auth";
+import { useNavigate } from "react-router-dom";
+
+
 
 function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -23,20 +27,17 @@ function Login() {
 
     const data = await login({ email, password });
 
-    // 🔐 Store JWT securely (for now)
     localStorage.setItem("token", data.token);
     localStorage.setItem("user", JSON.stringify(data.user));
 
-    // temporary success feedback
-    alert("Login successful");
-
-    // later: redirect to dashboard
+    navigate("/Dashboard"); 
   } catch (err) {
     setError(err.message);
   } finally {
     setLoading(false);
   }
 };
+
 
 
   return (

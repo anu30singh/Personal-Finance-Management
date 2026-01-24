@@ -16,7 +16,12 @@ router.post("/", requireAuth, async (req, res) => {
   }
 
   try {
-    const wallet = await walletService.getWalletByUserId(req.user.id);
+    let wallet = await walletService.getWalletByUserId(req.user.id);
+
+        if (!wallet) {
+             wallet = await walletService.createWalletForUser(req.user.id);
+        }
+
 
     const result = await transactionService.createTransaction({
       userId: req.user.id,

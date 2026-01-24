@@ -26,6 +26,9 @@ app.use("/wallet", walletRoutes); // Mount wallet routes
 app.use("/transactions", transactionRoutes); // Mount transaction routes
 app.use("/dashboard", dashboardRoutes); // Mount dashboard routes
 app.use("/goals", goalRoutes); // Mount goals routes
+app.use("/reports", require("./routes/reports")); // Mount reports routes //directly requiring here for brevity
+app.use("/ai", require("./routes/ai")); // Mount AI routes
+
 
 
 

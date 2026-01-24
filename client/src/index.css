@@ -11,3 +11,23 @@
 .animate-shake {
   animation: shake 0.3s ease-in-out;
 }
+
+/* Smooth fonts */
+body {
+  @apply bg-zinc-100 text-zinc-900 antialiased;
+}
+
+/* Subtle card hover */
+.card-hover {
+  @apply transition transform hover:-translate-y-0.5 hover:shadow-md;
+}
+
+/* Button base */
+.btn-primary {
+  @apply bg-zinc-900 text-white px-5 py-2 rounded-xl text-sm
+         hover:bg-zinc-800 transition disabled:opacity-60;
+}
+
+.btn-secondary {
+  @apply border px-5 py-2 rounded-xl text-sm hover:bg-zinc-100 transition;
+}
