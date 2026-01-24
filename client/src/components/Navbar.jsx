@@ -18,7 +18,7 @@ useEffect(() => {
   function handleLogout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    navigate("/login");
+    navigate("/");
   }
 
   return (
