@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
-const API_BASE = "http://localhost:4000";
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 function Dashboard() {
   const [wallet, setWallet] = useState(null);
