@@ -2,6 +2,16 @@ require('dotenv').config();
 const pool = require('./config/db');
 const app = require('./app');
 const PORT = process.env.PORT || 4000;
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://personal-finance-management-mhpj.onrender.com",
+    ],
+    credentials: true,
+  })
+);
+
 
 (async () => {
   try {
