@@ -51,6 +51,17 @@ useEffect(() => {
     Dashboard
   </NavLink>
 
+    <NavLink
+    to="/transactions"
+    className={({ isActive }) =>
+      isActive
+        ? "text-zinc-900"
+        : "text-zinc-500 hover:text-zinc-900"
+    }
+  >
+    Transactions
+  </NavLink>
+
   <NavLink
     to="/goals"
     className={({ isActive }) =>
@@ -72,6 +83,8 @@ useEffect(() => {
   >
     Reports
   </NavLink>
+
+
 
   {/* User Section */}
   {user && (

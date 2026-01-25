@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Goals from "./pages/Goals";
 import Reports from "./pages/Reports";
+import Transactions from "./pages/Transactions";
 
 
 
@@ -35,6 +36,7 @@ function App() {
           )
         }
       />
+
       <Route
           path="/dashboard"
             element={
@@ -44,6 +46,16 @@ function App() {
             <Navigate to="/login" />
           )
        }
+      />
+      <Route
+        path="/transactions"
+        element={ 
+          localStorage.getItem("token") ? (
+            <Transactions />
+          ) : (
+            <Navigate to="/login" />
+          )
+        }
       />
     </Routes>
     
