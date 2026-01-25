@@ -70,7 +70,7 @@ function Landing() {
           <div className="hidden md:flex justify-center relative">
             <div className="absolute inset-0 bg-gradient-to-tr from-zinc-900/10 to-zinc-600/10 blur-3xl rounded-full"></div>
             <img
-              src="/src/assets/image.png"
+              src="/src/assets/landing.png"
               alt="Personal finance wallet illustration"
               className="relative max-w-sm w-full opacity-90 hover:opacity-100 transition-opacity duration-500 drop-shadow-2xl"
             />
