@@ -1,4 +1,4 @@
-# 💰 Flexiwallet — Personal Finance Management App
+#  Flexiwallet — Personal Finance Management App
 
 Flexiwallet is a full-stack personal finance management application that helps users track expenses, manage savings goals, and gain intelligent insights into their financial habits.
 
