@@ -19,7 +19,7 @@ app.use(
     console.log('DB chl gya');
 
     require('./app'); 
-    console.log(` Server ready on port ${PORT}`);
+
   } catch (err) {
     console.error('DB connection phat gya', err);
   }
