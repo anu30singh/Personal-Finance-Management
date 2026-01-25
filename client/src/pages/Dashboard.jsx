@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import financeGif from "../assets/gif.gif";
+
 
 const API_BASE = import.meta.env.VITE_API_BASE;
 
@@ -130,7 +132,7 @@ const filteredTransactions = transactions
   );
 
 
-
+const user = JSON.parse(localStorage.getItem("user"));
   return (
     <>
       <Navbar />
@@ -138,12 +140,17 @@ const filteredTransactions = transactions
       <div className="min-h-screen bg-zinc-50 p-6">
         <div className="max-w-5xl mx-auto space-y-6">
           
-          <div className="mb-2">
-            <h1 className="text-xl font-semibold text-zinc-900">Dashboard</h1>
-          </div>
+         <div className="mb-4">
+           <h1 className="text-2xl font-semibold text-zinc-900 tracking-tight">
+             {user?.name}’s Dashboard
+           </h1>
+           <p className="text-sm text-zinc-500 mt-1">
+              Here’s a quick look at your finances today
+           </p>
+         </div>
 
-          {/* Main Balance */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+   {/* Main Balance */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
   {/* Wallet */}
   <div className="bg-white rounded-2xl p-6 shadow-sm card-hover">
     <p className="text-sm text-zinc-500">Wallet Balance</p>
@@ -152,7 +159,7 @@ const filteredTransactions = transactions
     </h2>
   </div>
 
-  {/* Income */}
+     {/* Income */}
   <div className="bg-white rounded-2xl p-6 shadow-sm card-hover">
     <p className="text-sm text-zinc-500">Total Income</p>
     <h2 className="text-3xl font-semibold mt-2 tracking-tight text-green-600">
@@ -180,7 +187,16 @@ const filteredTransactions = transactions
                 View all →
               </Link>
             </div>
+            <div className="bg-white rounded-2xl p-4 shadow-sm flex items-center justify-center">
+                <img
+                  src={financeGif}
+                  alt="Financial insights"
+                  className="max-h-40 object-contain"
+                />
+              </div>
           </div>
+          
+
 
           {/* AI Insights */}
           {insights.length > 0 && (
