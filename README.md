@@ -40,7 +40,7 @@ Built as a production-ready project with a focus on **clean architecture, securi
 
 ## Architecture Overview
 
-<img src = "/assets/A.png">
+<img src = "client/src/assets/diagram-export-26-1-2026-11_09_33-am.png"/>
 
 **Frontend**
 - React
