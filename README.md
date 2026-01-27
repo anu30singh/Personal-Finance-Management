@@ -40,6 +40,8 @@ Built as a production-ready project with a focus on **clean architecture, securi
 
 ## Architecture Overview
 
+<img src = "/assets/A.png">
+
 **Frontend**
 - React
 - Tailwind CSS
