@@ -68,8 +68,8 @@ Built as a production-ready project with a focus on **clean architecture, securi
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/flexiwallet.git
-cd flexiwallet
+git clone https://github.com/anu30singh/Personal-Finance-Management.git
+cd Personal-Finance-Management
 ```
 
 2. **Backend Setup**
