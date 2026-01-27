@@ -60,16 +60,49 @@ Built as a production-ready project with a focus on **clean architecture, securi
 - Rule-based AI for explainability
 
 ---
+## Database Schema
 
+<img src = "client/src/assets/diagram-export-26-1-2026-11_03_44-am.png"/>
 
-## 🧪 Local Setup
+### Installation
 
-### Prerequisites
-- Node.js (v18+)
-- PostgreSQL
+1. **Clone the repository**
+```bash
+git clone https://github.com/yourusername/flexiwallet.git
+cd flexiwallet
+```
 
-### Backend
+2. **Backend Setup**
 ```bash
 cd backend
 npm install
+
+# Create .env file
+cp .env.example .env
+# Edit .env with your database credentials
+
+# Run database migrations
+npm run migrate
+
+# Start development server
 npm run dev
+```
+
+3. **Frontend Setup**
+```bash
+cd frontend
+npm install
+
+# Create .env file
+cp .env.example .env
+# Set REACT_APP_API_URL to your backend URL
+
+# Start development server
+npm start
+```
+
+4. **Access the application**
+```
+Frontend: http://localhost:3000
+Backend API: http://localhost:5000
+```
