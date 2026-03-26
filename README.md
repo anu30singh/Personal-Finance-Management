@@ -64,6 +64,10 @@ Built as a production-ready project with a focus on **clean architecture, securi
 
 <img src = "client/src/assets/diagram-export-26-1-2026-11_03_44-am.png"/>
 
+## Screenshots
+<img width="934" height="410" alt="{32558A24-51AA-4E21-8CAA-FD7ED700E92E}" src="https://github.com/user-attachments/assets/7c0fa626-46fb-4456-b5b2-a43cf979e782" />
+
+
 ### Installation
 
 1. **Clone the repository**
